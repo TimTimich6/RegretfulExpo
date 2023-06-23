@@ -106,7 +106,7 @@ export default function StoryPreview({ content, authorId, id, likes, setPosts }:
           {content}
         </Text>
         <View style={styles.bottom}>
-          <Text style={styles.time}>By #{authorId.substring(0, 6)}</Text>
+          <Text style={styles.time}>By #{authorId.substring(authorId.length - 6)}</Text>
           <TouchableOpacity style={{ flexDirection: "row", alignItems: "center", gap: 5 }} onPress={toggleLike}>
             {likeId ? <AntDesign name="star" size={30} color="#fffc5c" /> : <AntDesign name="staro" size={30} color="#fffc5c" />}
             <Text style={styles.time}>{likeC}</Text>

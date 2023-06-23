@@ -42,7 +42,7 @@ export default function User({ navigation }) {
             <View style={{ width: 70, height: 70, backgroundColor: "#00EFFF", borderBottomLeftRadius: 30 }}></View>
             <View style={{ width: 70, height: 70, backgroundColor: "#00E0FF", borderBottomRightRadius: 30 }}></View>
           </View>
-          <Text style={styles.id}>#{user && user?.id?.substring(0, 6)}</Text>
+          <Text style={styles.id}>#{user && user?.id?.substring(user?.id?.length - 6)}</Text>
           <View style={{ gap: 5 }}>
             <Text style={styles.stat}> Stories Posted: {user && user?.Story?.length}</Text>
             <Text style={styles.stat}> Stories Favorited: {user && user?.liked?.length}</Text>

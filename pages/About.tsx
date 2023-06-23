@@ -8,7 +8,8 @@ export default function About() {
         About
       </Text>
       <Text style={styles.description}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime ad ipsum, eveniet impedit aliquid provident non neque alias nobis sequi?
+        Regretful is a fun app where you can anonymously share your stories or notes with others and favorite other posts. No data is stored regarding
+        the device or the actual user.
       </Text>
       <View style={{ width: "100%", marginTop: 40, borderBottomWidth: 1, borderColor: "#F7FFF7" }}>
         <TouchableOpacity
