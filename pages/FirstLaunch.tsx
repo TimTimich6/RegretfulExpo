@@ -13,6 +13,7 @@ export default function FirstLaunch() {
         <View style={styles.buttons}>
           <RoundButton text="Proceed" bg="#FFFC5C" color="#121517" onPress={(e) => setFirstLaunch(false)}></RoundButton>
         </View>
+        <Text style={styles.tos}>By proceeding you agree to EULA</Text>
       </View>
     );
 }
@@ -42,6 +43,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: "center",
     fontWeight: "600",
+  },
+  tos: {
+    color: "gray",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "600",
+    marginTop: 10,
   },
   buttons: {
     // position: "relative",

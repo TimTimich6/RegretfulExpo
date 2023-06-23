@@ -70,15 +70,15 @@ export default function Story({ navigation, route }) {
               <Text style={styles.small}>By #{post.authorId}</Text>
               <Text style={styles.small}>{new Date(Date.now() - Date.parse(post.createdAt) + 43200000).toLocaleTimeString()}</Text>
             </View>
+            <View style={{ flexDirection: "row", alignItems: "center", gap: 5, marginTop: 5, justifyContent: "flex-end" }}>
+              {likeId ? <AntDesign name="star" size={30} color="#fffc5c" /> : <AntDesign name="staro" size={30} color="#fffc5c" />}
+              <Text style={{ fontSize: 22, color: "#FFFC5C", fontWeight: "700", textAlign: "right" }}>{likeC}</Text>
+            </View>
             <Text style={styles.content} selectable={true}>
               {post.content}
             </Text>
           </View>
           <View style={styles.bottom}>
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 5, justifyContent: "center" }}>
-              {likeId ? <AntDesign name="star" size={30} color="#fffc5c" /> : <AntDesign name="staro" size={30} color="#fffc5c" />}
-              <Text style={{ fontSize: 22, color: "#FFFC5C", fontWeight: "700", textAlign: "right" }}>{likeC}</Text>
-            </View>
             <RoundButton text="Add To Favorites" bg="#24292D" color="#FFFC5C" fz={25} onPress={toggleLike}></RoundButton>
             {/* <RoundButton text="Go Back" onPress={() => navigation.goBack()}></RoundButton> */}
           </View>

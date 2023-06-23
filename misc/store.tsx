@@ -26,7 +26,7 @@ export const ContextProvider = (props) => {
       if (!created) {
         console.log("232323");
         setFirstLaunch(true);
-        const resp = await axios.post("http://192.168.0.238:3080/api/users").catch((err) => console.log(err));
+        const resp = await axios.post("https://regretfulapp.xyz/api/users").catch((err) => console.log(err));
         if (resp) {
           console.log(resp.data);
           storeData("user", JSON.stringify(resp.data));
@@ -37,7 +37,7 @@ export const ContextProvider = (props) => {
         console.log("heer4342", JSON.parse(created).id);
 
         axios
-          .get("http://192.168.0.238:3080/api/users/" + JSON.parse(created).id)
+          .get("https://regretfulapp.xyz/api/users/" + JSON.parse(created).id)
           .then((resp) => {
             console.log("user", resp.data);
             if (resp.data) {

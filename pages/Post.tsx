@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#FFFC5C",
     width: "100%",
+    marginLeft: 4,
   },
   inp: {
     color: "#F7FFF7",

@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Story from "./Story";
 import User from "./User";
 import ViewStories from "./ViewStories";
+import About from "./About";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,17 @@ export default function UserStack({ navigation }) {
       <Stack.Screen
         name="ViewStories"
         component={ViewStories}
+        options={{
+          header: () => (
+            <TouchableHighlight onPress={() => navigation.navigate("UserStack", { screen: "User" })} style={styles.header} underlayColor={"#121517"}>
+              <Ionicons name="arrow-back-outline" size={40} color="#F7FFF7" />
+            </TouchableHighlight>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="About"
+        component={About}
         options={{
           header: () => (
             <TouchableHighlight onPress={() => navigation.navigate("UserStack", { screen: "User" })} style={styles.header} underlayColor={"#121517"}>

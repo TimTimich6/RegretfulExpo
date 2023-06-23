@@ -5,7 +5,6 @@ import useAxios from "../misc/useAxios";
 import { ActivityIndicator } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
-
 export default function User({ navigation }) {
   const { user, setUser } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
@@ -43,10 +42,10 @@ export default function User({ navigation }) {
             <View style={{ width: 70, height: 70, backgroundColor: "#00EFFF", borderBottomLeftRadius: 30 }}></View>
             <View style={{ width: 70, height: 70, backgroundColor: "#00E0FF", borderBottomRightRadius: 30 }}></View>
           </View>
-          <Text style={styles.id}>#{user && user.id.substring(0, 6)}</Text>
+          <Text style={styles.id}>#{user && user?.id?.substring(0, 6)}</Text>
           <View style={{ gap: 5 }}>
-            <Text style={styles.stat}> Stories Posted: {user && user?.Story.length}</Text>
-            <Text style={styles.stat}> Stories Favorited: {user && user?.liked.length}</Text>
+            <Text style={styles.stat}> Stories Posted: {user && user?.Story?.length}</Text>
+            <Text style={styles.stat}> Stories Favorited: {user && user?.liked?.length}</Text>
           </View>
           <View style={{ width: "100%", marginTop: 40, borderBottomWidth: 1, borderColor: "#F7FFF7" }}>
             <TouchableOpacity
@@ -58,7 +57,7 @@ export default function User({ navigation }) {
                 });
               }}
             >
-              <Text style={styles.wide}>View my Stories: {user && user?.Story.length}</Text>
+              <Text style={styles.wide}>View my Stories: {user && user?.Story?.length}</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.section}
@@ -69,14 +68,11 @@ export default function User({ navigation }) {
                 });
               }}
             >
-              <Text style={styles.wide}>View my Favorited: {user && user?.liked.length}</Text>
+              <Text style={styles.wide}>View my Favorited: {user && user?.liked?.length}</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.section}>
+            <TouchableOpacity style={styles.section} onPress={() => navigation.navigate("About")}>
               <Text style={styles.wide}>About the app</Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.section}>
-              <Text style={styles.wide}>Legal</Text>
-            </TouchableOpacity> */}
           </View>
         </>
       ) : (
