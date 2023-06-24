@@ -17,40 +17,6 @@ export default function Story({ navigation, route }) {
   const [likeId, setLikeId] = useState<any | boolean>(route.params.likeId);
   const { user } = useAuth();
   console.log("params", route.params);
-  const confirmFlag = () =>
-    Alert.alert("Confirm Flag", "Are you sure you want to flag this story for moderation?", [
-      {
-        text: "Cancel",
-        onPress: () => console.log("cancel pressed"),
-
-        style: "cancel",
-      },
-      {
-        text: "Confirm",
-        onPress: async () => {
-          console.log("confirm pressed");
-          setPost((prev) => {
-            return { ...prev, flagged: true };
-          });
-          const resp = await axios.put("posts/flag/" + post?.id).catch((err) => {
-            console.log(err);
-          });
-        },
-      },
-    ]);
-  navigation.setOptions({
-    header: () => (
-      <View style={{ justifyContent: "space-between", flexDirection: "row", backgroundColor: "#121517", paddingHorizontal: 10 }}>
-        <TouchableHighlight onPress={() => navigation.goBack()} style={styles.header} underlayColor={"#121517"}>
-          <Ionicons name="arrow-back-outline" size={40} color="#F7FFF7" />
-        </TouchableHighlight>
-
-        <TouchableHighlight onPress={confirmFlag} style={styles.header} underlayColor={"#121517"}>
-          <Ionicons name="flag" size={30} color={!route.params.flagged ? "#F7FFF7" : "crimson"} />
-        </TouchableHighlight>
-      </View>
-    ),
-  });
 
   const toggleLike = async () => {
     if (likeId) {

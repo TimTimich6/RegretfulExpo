@@ -15,7 +15,7 @@ export default function About() {
         <TouchableOpacity
           style={styles.section}
           onPress={() => {
-            openURL("https://www.regretfulapp.xyz/eula");
+            openURL("https://regretfulapp.xyz/eula");
           }}
         >
           <Text style={styles.wide}>Read Eula</Text>
@@ -23,7 +23,7 @@ export default function About() {
         <TouchableOpacity
           style={styles.section}
           onPress={() => {
-            openURL("https://www.regretfulapp.xyz/privacy");
+            openURL("https://regretfulapp.xyz/privacy");
           }}
         >
           <Text style={styles.wide}>Read Privacy Policy</Text>
