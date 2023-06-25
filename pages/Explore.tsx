@@ -54,7 +54,7 @@ export default function Explore({ route, navigation }) {
         contentContainerStyle={styles.inside}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={"#FFFC5C"} />}
       >
-        {!refreshing ? (
+        {posts ? (
           posts.map((post) => (
             <StoryPreview
               authorId={post.authorId}
