@@ -17,14 +17,15 @@ export default function Explore({ route, navigation }) {
   const axios = useAxios();
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState<PostI[]>([]);
+
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setPosts([]);
-    axios
+    const resp = axios
       .get<PostI[]>("posts")
       .then((resp) => {
-        // console.log(resp.data);
-
+        console.log("rew,", resp.request);
+        // log
         if (resp.data) {
           setPosts(resp.data);
         }
@@ -32,6 +33,7 @@ export default function Explore({ route, navigation }) {
       .catch((err) => {
         console.log("couldnt fetch posts", err);
       });
+
     setRefreshing(false);
   }, []);
 

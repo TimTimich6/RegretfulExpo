@@ -1,20 +1,23 @@
 import axios from "axios";
 import useAuth from "./useAuth";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const useAxios = () => {
-  const auth = useAuth();
-  useEffect(() => {}, [auth]);
+  const { user } = useAuth();
+  console.log(user && "proof");
 
-  return axios.create({
-    baseURL: __DEV__ ? "http://192.168.0.237:3080/api" : "https://regretfulapp.xyz/api",
+  const inst = useMemo(
+    () =>
+      axios.create({
+        baseURL: __DEV__ ? "http://192.168.0.237:3080/api" : "https://regretfulapp.xyz/api",
 
-    ...(auth?.user && {
-      headers: {
-        authorization: auth?.user.id,
-      },
-    }),
-  });
+        headers: {
+          authorization: user ? user.id : "",
+        },
+      }),
+    [user]
+  );
+  return inst;
 };
 
 export default useAxios;

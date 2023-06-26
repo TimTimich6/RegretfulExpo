@@ -27,7 +27,7 @@ export default function StoryStack({ navigation, route }) {
     console.log("auth", user?.id);
     // console.log("block pressed", authorId);
 
-    const resp = await axios.put("users/block/" + authorId).catch((err) => {
+    const resp = await axios.put("users/block/" + authorId, {}, { headers: { Authorization: user?.id } }).catch((err) => {
       console.log(err);
     });
     if (resp) {
