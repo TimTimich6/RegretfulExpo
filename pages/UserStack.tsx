@@ -55,9 +55,6 @@ export default function UserStack({ navigation }) {
               <TouchableHighlight onPress={() => navigation.goBack()} style={styles.header} underlayColor={"#121517"}>
                 <Ionicons name="arrow-back-outline" size={40} color="#F7FFF7" />
               </TouchableHighlight>
-              <TouchableHighlight onPress={() => confirmFlag(props.route.params)} style={styles.header} underlayColor={"#121517"}>
-                <Ionicons name="flag" size={30} color={"#F7FFF7"} />
-              </TouchableHighlight>
             </View>
           ),
         }}

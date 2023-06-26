@@ -23,7 +23,7 @@ export default function Explore({ route, navigation }) {
     axios
       .get<PostI[]>("posts")
       .then((resp) => {
-        console.log(resp.data);
+        // console.log(resp.data);
 
         if (resp.data) {
           setPosts(resp.data);
@@ -33,9 +33,6 @@ export default function Explore({ route, navigation }) {
         console.log("couldnt fetch posts", err);
       });
     setRefreshing(false);
-    return () => {
-      setPosts([]);
-    };
   }, []);
 
   useFocusEffect(

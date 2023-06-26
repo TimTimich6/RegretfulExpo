@@ -16,7 +16,7 @@ export default function Story({ navigation, route }) {
   const [likeC, setLikeC] = useState<number>(route.params.likes);
   const [likeId, setLikeId] = useState<any | boolean>(route.params.likeId);
   const { user } = useAuth();
-  console.log("params", route.params);
+  // console.log("params", route.params);
 
   const toggleLike = async () => {
     if (likeId) {
@@ -40,7 +40,6 @@ export default function Story({ navigation, route }) {
       });
 
       if (resp && resp.data) {
-        console.log(resp.data);
         setLikeId(resp.data.like.id);
       }
     }

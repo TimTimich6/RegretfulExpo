@@ -13,9 +13,9 @@ export default function StoryPreview({ content, authorId, id, likes, setPosts }:
   const navigation = useNavigation<StackNavigationProp<any>>();
   const [likeC, setLikeC] = useState(likes.length);
   const [likeId, setLikeId] = useState(undefined);
-  console.log("likeID", likeId);
-  console.log("count", likeC);
-  console.log("all", likes);
+  // console.log("likeID", likeId);
+  // console.log("count", likeC);
+  // console.log("all", likes);
 
   const axios = useAxios();
   useEffect(() => {
@@ -97,6 +97,7 @@ export default function StoryPreview({ content, authorId, id, likes, setPosts }:
           id,
           likes: likeC || 0,
           likeId: likeId?.id || undefined,
+          authorId,
         });
       }}
       underlayColor={"#21262A"}

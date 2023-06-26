@@ -49,14 +49,14 @@ export default function Post({ navigation, route }) {
             collapsable={true}
             keyboardAppearance="dark"
             keyboardType="default"
-            maxLength={1000}
+            maxLength={2000}
             placeholderTextColor={"lightgray"}
             value={text}
             onChangeText={(t) => setText(t)}
             onSubmitEditing={Keyboard.dismiss}
           ></TextInput>
           <Text style={{ color: "gray", fontSize: 17, fontWeight: "600", textAlign: "right", alignSelf: "flex-end", marginVertical: 5 }}>
-            Characters used: {text.length}/1000
+            Characters used: {text.length}/2000
           </Text>
         </View>
         <View style={styles.bottom}>
