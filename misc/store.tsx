@@ -24,7 +24,7 @@ export const ContextProvider = (props) => {
       console.log("cr", created);
 
       if (!created) {
-        console.log("232323");
+        console.log("creating new user");
         setFirstLaunch(true);
         const resp = await axios.post("https://regretfulapp.xyz/api/users").catch((err) => console.log(err));
         if (resp) {
@@ -35,7 +35,7 @@ export const ContextProvider = (props) => {
       } else {
         setFirstLaunch(false);
         const parsed = JSON.parse(created).id;
-        console.log("heer4342", parsed);
+        console.log("user already created", parsed);
         axios.defaults.headers.common.Authorization = parsed;
         axios.interceptors.request.use((config) => {
           config.headers.Authorization = parsed;

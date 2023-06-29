@@ -73,6 +73,9 @@ export default function User({ navigation }) {
             <TouchableOpacity style={styles.section} onPress={() => navigation.navigate("About")}>
               <Text style={styles.wide}>About the app</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.section} onPress={() => navigation.navigate("Filters")}>
+              <Text style={styles.wide}>Configure Filters</Text>
+            </TouchableOpacity>
           </View>
         </>
       ) : (

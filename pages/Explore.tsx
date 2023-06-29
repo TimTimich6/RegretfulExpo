@@ -19,7 +19,7 @@ export default function Explore({ route, navigation }) {
   const { user } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState<PostI[]>([]);
-  console.log("expuser", user && user.id);
+  // console.log("expuser", user && user.id);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);

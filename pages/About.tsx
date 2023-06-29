@@ -50,7 +50,7 @@ export default function About() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: "flex-start",
     backgroundColor: "#121517",
     paddingTop: 15,
     // paddingHorizontal: 15,
