@@ -34,10 +34,15 @@ export const ContextProvider = (props) => {
         }
       } else {
         setFirstLaunch(false);
-        console.log("heer4342", JSON.parse(created).id);
-
+        const parsed = JSON.parse(created).id;
+        console.log("heer4342", parsed);
+        axios.defaults.headers.common.Authorization = parsed;
+        axios.interceptors.request.use((config) => {
+          config.headers.Authorization = parsed;
+          return config;
+        });
         axios
-          .get("https://regretfulapp.xyz/api/users/" + JSON.parse(created).id)
+          .get("https://regretfulapp.xyz/api/users/" + parsed)
           .then((resp) => {
             console.log("user", resp.data);
             if (resp.data) {

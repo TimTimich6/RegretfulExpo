@@ -5,6 +5,7 @@ import useAxios from "../misc/useAxios";
 import StoryPreview from "../components/StoryPreview";
 import { ActivityIndicator } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
+import useAuth from "../misc/useAuth";
 
 export interface PostI {
   content: string;
@@ -15,8 +16,10 @@ export interface PostI {
 }
 export default function Explore({ route, navigation }) {
   const axios = useAxios();
+  const { user } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
   const [posts, setPosts] = useState<PostI[]>([]);
+  console.log("expuser", user && user.id);
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -24,7 +27,7 @@ export default function Explore({ route, navigation }) {
     const resp = axios
       .get<PostI[]>("posts")
       .then((resp) => {
-        console.log("rew,", resp.request);
+        // console.log("rew,", resp.request);
         // log
         if (resp.data) {
           setPosts(resp.data);
@@ -35,12 +38,12 @@ export default function Explore({ route, navigation }) {
       });
 
     setRefreshing(false);
-  }, []);
+  }, [user]);
 
   useFocusEffect(
     useCallback(() => {
       onRefresh();
-    }, [navigation])
+    }, [navigation, user])
   );
 
   return (
